@@ -1,3 +1,5 @@
+package variable_datatype_operator;
+
 public class hello
 {
     public static void main(String[] args)

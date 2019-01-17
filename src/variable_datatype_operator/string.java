@@ -1,3 +1,5 @@
+package variable_datatype_operator;
+
 public class string
 {
     public static void main(String[] args)
@@ -13,7 +15,7 @@ public class string
         System.out.println(copyright);
 
         //we cannot calculate two values if
-        // they are or one of them is string
+        // they are or one of them is variable_datatype_operator.string
         System.out.println(b + age);
         System.out.println(b);
     }
