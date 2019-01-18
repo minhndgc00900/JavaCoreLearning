@@ -31,8 +31,21 @@ public class code_block_if_else_and_method
         //to use method calculateScore(), we need to do like this, the things in
         //the bracket is value of parameter created in their method.
         //make sure that the value must be match with datatype of each parameter
-        calculateScore(true, 800, levelCompleted, bonus);
-        calculateScore(true, 200, 3, 50);
+        int highScore = calculateScore(true, 800, levelCompleted, bonus);
+        System.out.println("your final score was " + highScore);
+
+
+        highScore = calculateScore(true, 200, 3, 50);
+        System.out.println("your final score was " + highScore);
+
+        int data = calculateHighScorePosition(1000);
+        displayHighScorePosition("Minh", data);
+        int data2 = calculateHighScorePosition(900);
+        displayHighScorePosition("Tran", data2);
+        int data3 = calculateHighScorePosition(400);
+        displayHighScorePosition("Tuan", data3);
+        int data4 = calculateHighScorePosition(50);
+        displayHighScorePosition("Hang", data4);
 
         //challenge
 //        score = 10000;
@@ -56,7 +69,6 @@ public class code_block_if_else_and_method
         if(gameOver)
         {
             int finalScore = score + (levelCompleted * bonus);
-            System.out.println("your final score was " + finalScore);
             return finalScore;
             // return is used to exit from a method, with or without a value.
         }
@@ -65,6 +77,37 @@ public class code_block_if_else_and_method
         //we still need to send the value back even if the gameOver isn't true
         return -1;
         //return -1 indicates the value is invalid or not found.
+    }
+
+
+    //challenge
+    public static void displayHighScorePosition(String name, int position)
+    {
+        System.out.println(name + " managed to get into position " + position + " on the high score table");
+    }
+
+    public static int calculateHighScorePosition(int theScore)
+    {
+        if (theScore >= 1000)
+        {
+            int position = 1;
+            return position;
+        }
+        else if (theScore >= 500)
+        {
+            int position = 2;
+            return position;
+        }
+        else if (theScore >= 100)
+        {
+            int position = 3;
+            return position;
+        }
+        else
+        {
+            int position = 4;
+            return position;
+        }
     }
 }
 
