@@ -4,9 +4,9 @@ public class methodOverloading
 {
     public static void main(String[] args) {
         int newScore = calculatorScore("minh", 40);
-        System.out.println("return value is " + newScore);
+        System.out.println("return value is " + newScore + "\n");
 
-        System.out.println("return value is " + calculatorScore(40));
+        System.out.println("return value is " + calculatorScore(40) + "\n");
 
         calculatorScore();
 
@@ -38,7 +38,7 @@ public class methodOverloading
 
     public static int calculatorScore()
     {
-        System.out.println("no one score a single point");
+        System.out.println("no one score a single point" + "\n");
         return 0;
     }
 
