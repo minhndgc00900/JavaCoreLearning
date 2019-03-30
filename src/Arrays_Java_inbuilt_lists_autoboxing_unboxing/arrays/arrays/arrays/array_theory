@@ -1,0 +1,26 @@
+Array:
+- Is a data structure allows to store multiple values of the same type
+into a single variable
+
+- The default values of numeric array elements are set to "0";
+
+- Arrays are zero indexed: an array with "n elements" is indexed from 0 to "n-1",
+for example 10 elements index range is from 0-9;
+
+- if we try to access that is out of range, java will give an
+"ArrayIndexOutOfBoundsException", which indicates that the index is out of range,
+in other words out of bounds.
+
+- To access array elements, we use square brace "[]", also known as access
+operator
+
+- "new" in "int[] arr = new int[5]" is used to create the array and initialise the
+array elements to their default values
+
+- int array elements would be initialized to "0"
+
+- boolean array elements would be initialized to "false"
+
+- for string or other objects, it would be "null"
+
+
