@@ -15,7 +15,7 @@ public class switch_case
                 System.out.println("2");
                 break;
             case 3:
-                System.out.println("3");
+                System.out.println("333");
                 break;
             default:
                 System.out.println("not any either");

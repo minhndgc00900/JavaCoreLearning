@@ -1,0 +1,2 @@
+ArrayList:
+-  Is resizable-array, in other words it handles the resizing automatically
