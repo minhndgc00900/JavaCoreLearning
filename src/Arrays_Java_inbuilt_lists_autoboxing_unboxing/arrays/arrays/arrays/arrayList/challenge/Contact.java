@@ -1,13 +1,11 @@
 package Arrays_Java_inbuilt_lists_autoboxing_unboxing.arrays.arrays.arrays.arrayList.challenge;
 
-import java.util.ArrayList;
-
-public class phoneList
+public class Contact
 {
     private String name;
     private int phoneNumber;
 
-    public phoneList(String name, int phoneNumber) {
+    public Contact(String name, int phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
@@ -20,16 +18,13 @@ public class phoneList
         return phoneNumber;
     }
 
-    public static phoneList createContact(String name, int phoneNumber)
+
+    public static Contact createContact(String name, int phoneNumber)
     {
-        return new phoneList(name, phoneNumber);
+        return new Contact(name, phoneNumber);
     }
 
-    private ArrayList<phoneList> phoneLists = new ArrayList<>();
 
-    public void addcontact(String name, int phoneNumber)
-    {
-        
-    }
+
 
 }

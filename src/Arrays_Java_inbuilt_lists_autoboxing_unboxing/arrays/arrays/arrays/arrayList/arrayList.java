@@ -7,6 +7,8 @@ public class arrayList
 {
     //create an arrayList and the elements in this case =>
     //are gonna be type of string
+    //In general, these enable types (classes and interfaces) to be parameters =>
+    // when defining classes, interfaces and methods.
     private ArrayList<String> groceryList = new ArrayList<>();
 
     public ArrayList<String> getGroceryList() {
