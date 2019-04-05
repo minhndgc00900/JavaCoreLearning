@@ -12,9 +12,9 @@ public class mobilePhone
 
     public boolean addNewContact(Contact contact)
     {
-        if (findContact(contact.getName()) >= 0)
+        String nameOfcontact = contact.getName();
+        if (findContact(nameOfcontact) >= 0)
         {
-            System.out.println("Existed");
             return false;
         }
         myContacts.add(contact);
@@ -23,9 +23,11 @@ public class mobilePhone
 
     public boolean updateContact(Contact oldContact, Contact newContact)
     {
-        if (findContact(oldContact) >= 0)
+        int foundPosition = findContact(oldContact);
+
+        if (foundPosition >= 0)
         {
-            myContacts.set(findContact(oldContact), newContact);
+            myContacts.set(foundPosition, newContact);
             System.out.println(oldContact.getName() + " has been replaced for " + newContact.getName());
             return true;
         }
@@ -36,21 +38,63 @@ public class mobilePhone
         }
     }
 
+    public void viewAll()
+    {
+        System.out.println("there are " + myContacts.size() + " contact(s)");
+
+        for (int i = 0; i < myContacts.size(); i++)
+        {
+            System.out.println(i + ". " + myContacts.get(i).getName() + " => " + myContacts.get(i).getPhoneNumber());
+        }
+    }
+
+    public String removeContact(Contact contact)
+    {
+        String nameOfcontact = contact.getName();
+        if (findContact(nameOfcontact) >= 0)
+        {
+            myContacts.remove(findContact(contact));
+            return nameOfcontact + " has been removed";
+        }
+        return "cannot find the contact";
+    }
+
+    //will return the position of array of a record
     private int findContact(Contact contact)
     {
         return myContacts.indexOf(contact);
     }
 
-    private int findContact(String name)
+    //will return the position of array by name of a record
+    private int findContact(String contactName)
     {
         for (int i = 0; i<myContacts.size(); i++)
         {
             Contact contact = this.myContacts.get(i);
-            if (contact.getName().equals(name))
+            if (contact.getName().equals(contactName)) //when we compare string with string, using equal()
             {
                 return i;
             }
         }
         return -1;
+    }
+
+    private String queryContact(Contact contact)
+    {
+        if (findContact(contact) >= 0)
+        {
+            return contact.getName();
+        }
+        return null;
+    }
+
+    private static Contact queryContact(String name)
+    {
+        int position = findContact(name);
+        if (position >= 0)
+        {
+            return  this.myContacts.get(position);
+        }
+        return null;
     }
 }

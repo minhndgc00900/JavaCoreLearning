@@ -19,6 +19,7 @@ public class Contact
     }
 
 
+    //return contact record
     public static Contact createContact(String name, int phoneNumber)
     {
         return new Contact(name, phoneNumber);
