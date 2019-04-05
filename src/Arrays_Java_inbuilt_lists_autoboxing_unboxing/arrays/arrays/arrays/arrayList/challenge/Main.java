@@ -30,12 +30,18 @@ public class Main
                     add();
                     break;
                 case 3:
+                    update();
                     break;
                 case 4:
+                    remove();
                     break;
                 case 5:
+                    findbyName();
                     break;
                 case 6:
+                    break;
+                case 7:
+                    quit = true;
                     break;
             }
         }
@@ -76,10 +82,60 @@ public class Main
     {
         System.out.println("Enter name of contact: ");
         String oldContact = scanner.nextLine();
-        Contact existContactrecord = mobilePhone.queryContact();
+        Contact existContactrecord = mobilePhone.queryContact(oldContact);
+
+        if (existContactrecord == null)
+        {
+            System.out.println("Not found contact!");
+            menu();
+        }
+
         System.out.println("Enter new name:  ");
         String newName = scanner.nextLine();
+        System.out.println("Enter new number: ");
+        int newNumber = scanner.nextInt();
+        Contact newContact = Contact.createContact(newName, newNumber);
+        mobilePhone.updateContact(existContactrecord, newContact);
+        System.out.println("The contact has been modified");
 
+    }
+
+    public static void remove()
+    {
+        System.out.println("Enter name of contact: ");
+        String name = scanner.nextLine();
+        Contact existContactrecord = mobilePhone.queryContact(name);
+
+        if (existContactrecord == null)
+        {
+            System.out.println("Cannot find contact");
+        }
+
+        if (mobilePhone.removeContact(existContactrecord))
+        {
+            System.out.println("Deleted successfully");
+        }
+
+    }
+
+    public static void findbyName()
+    {
+        System.out.println("Enter name of contact: ");
+        String name = scanner.nextLine();
+        Contact existContactRecord = mobilePhone.queryContact(name);
+
+        if (existContactRecord == null)
+        {
+            System.out.println("Cannot find contact");
+        }
+
+        int number = mobilePhone.queryContactNumber(existContactRecord);
+
+//        for (int i = 0; i < ; i++)
+//        {
+//        }
+
+        System.out.println(name + " => " + number);
     }
 
 }

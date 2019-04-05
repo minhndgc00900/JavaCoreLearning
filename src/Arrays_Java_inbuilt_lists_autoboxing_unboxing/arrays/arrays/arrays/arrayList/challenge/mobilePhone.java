@@ -48,15 +48,15 @@ public class mobilePhone
         }
     }
 
-    public String removeContact(Contact contact)
+    public boolean removeContact(Contact contact)
     {
         String nameOfcontact = contact.getName();
         if (findContact(nameOfcontact) >= 0)
         {
             myContacts.remove(findContact(contact));
-            return nameOfcontact + " has been removed";
+            return true;
         }
-        return "cannot find the contact";
+        return false;
     }
 
     //will return the position of array of a record
@@ -79,16 +79,16 @@ public class mobilePhone
         return -1;
     }
 
-    private String queryContact(Contact contact)
+    public int queryContactNumber(Contact contact)
     {
         if (findContact(contact) >= 0)
         {
-            return contact.getName();
+            return contact.getPhoneNumber();
         }
-        return null;
+        return -1;
     }
 
-    private static Contact queryContact(String name)
+    public Contact queryContact(String name)
     {
         int position = findContact(name);
         if (position >= 0)
