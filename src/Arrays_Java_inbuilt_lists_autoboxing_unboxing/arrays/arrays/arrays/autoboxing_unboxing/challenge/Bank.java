@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class bank
+public class Bank
 {
-    private ArrayList<branches> branch ;
+    private ArrayList<Branches> branches;
 
-    public bank() {
-        this.branch = new ArrayList<>();
+    public Bank() {
+        this.branches = new ArrayList<Branches>();
     }
-
-    
 }

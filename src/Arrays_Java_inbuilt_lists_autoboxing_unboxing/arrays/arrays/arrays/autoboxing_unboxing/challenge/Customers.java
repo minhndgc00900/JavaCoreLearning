@@ -2,15 +2,15 @@ package Arrays_Java_inbuilt_lists_autoboxing_unboxing.arrays.arrays.arrays.autob
 
 import java.util.ArrayList;
 
-public class customers
+public class Customers
 {
     private String name;
     private ArrayList<Double> transaction;
 
-    public customers(String name, double initialAmount) {
+    public Customers(String name, Double initialMoney) {
         this.name = name;
         this.transaction = new ArrayList<Double>();
-        addTransaction(initialAmount);
+        addTransaction(initialMoney);
     }
 
     public void addTransaction(double amount)
@@ -22,13 +22,9 @@ public class customers
         return name;
     }
 
-
     public ArrayList<Double> getTransaction() {
         return transaction;
     }
 
-    public static customers createCustomers(String name, double amount)
-    {
-        return new customers(name, amount);
-    }
+
 }

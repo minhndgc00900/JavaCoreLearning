@@ -23,10 +23,12 @@ public class mobilePhone
 
     public boolean updateContact(Contact oldContact, Contact newContact)
     {
+        //get position of current contact
         int foundPosition = findContact(oldContact);
 
         if (foundPosition >= 0)
         {
+            //if...then...update
             myContacts.set(foundPosition, newContact);
 
             System.out.println(oldContact.getName() + " has been replaced for " + newContact.getName());
