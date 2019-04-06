@@ -87,16 +87,29 @@ public class Main
         if (existContactrecord == null)
         {
             System.out.println("Not found contact!");
-            menu();
+        }
+        else
+        {
+            System.out.println("Enter new name:  ");
+            String newName = scanner.nextLine();
+            System.out.println("Enter new number: ");
+            int newNumber = scanner.nextInt();
+            Contact newContact = Contact.createContact(newName, newNumber);
+            if (newNumber == mobilePhone.findIfNumberExist(newNumber))
+            {
+                System.out.println("please try again!");
+            }
+            else
+            {
+                mobilePhone.updateContact(existContactrecord, newContact);
+                System.out.println("The contact has been modified");
+            }
+
+
+
         }
 
-        System.out.println("Enter new name:  ");
-        String newName = scanner.nextLine();
-        System.out.println("Enter new number: ");
-        int newNumber = scanner.nextInt();
-        Contact newContact = Contact.createContact(newName, newNumber);
-        mobilePhone.updateContact(existContactrecord, newContact);
-        System.out.println("The contact has been modified");
+
 
     }
 

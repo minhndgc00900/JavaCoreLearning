@@ -28,6 +28,7 @@ public class mobilePhone
         if (foundPosition >= 0)
         {
             myContacts.set(foundPosition, newContact);
+
             System.out.println(oldContact.getName() + " has been replaced for " + newContact.getName());
             return true;
         }
@@ -74,6 +75,19 @@ public class mobilePhone
             if (contact.getName().equals(contactName)) //when we compare string with string, using equal()
             {
                 return i;
+            }
+        }
+        return -1;
+    }
+
+    public int findIfNumberExist(int contactNumber)
+    {
+        for (int i = 0; i<myContacts.size(); i++)
+        {
+            Contact contact = this.myContacts.get(i);
+            if (contact.getPhoneNumber() == contactNumber)
+            {
+                return contact.getPhoneNumber();
             }
         }
         return -1;
