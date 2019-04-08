@@ -6,32 +6,54 @@ import java.util.ArrayList;
 
 public class Branches
 {
-    private ArrayList<Customers> customers;
+    private String name;
+    private ArrayList<Customers> cusArray;
 
-    public Branches() {
-        this.customers = new ArrayList<Customers>();
+    public Branches(String name) {
+        this.name = name;
+        this.cusArray = new ArrayList<Customers>();
     }
 
-    public boolean addCustomer(Customers customers)
+    public String getName() {
+        return name;
+    }
+
+    public boolean addCustomer(String cusName , double amount)
     {
-        String nameofCustomer = customers.getName();
-        if (findCustomer(nameofCustomer) >= 0)
+
+        if (findCustomer(cusName) != null)
         {
             return false;
         }
         else
         {
-            this.customers.add(customers);
+            this.cusArray.add(new Customers(cusName, amount));
             return true;
         }
     }
 
-    public boolean updateCustomer(Customers oldCus, Customers newCus)
+//    public boolean updateCustomer(Customers oldCus, Customers newCus)
+//    {
+//        int getCustomerPostion = findCustomer(oldCus);
+//        if (getCustomerPostion >= 0)
+//        {
+//            this.customers.set(getCustomerPostion, newCus);
+//            return true;
+//        }
+//        else
+//        {
+//            return false;
+//        }
+//    }
+
+
+    public boolean addCustomerTransaction(String cusName, double amount)
     {
-        int getCustomerPostion = findCustomer(oldCus);
-        if (getCustomerPostion >= 0)
+        Customers existCus = findCustomer(cusName);
+
+        if (existCus != null)
         {
-            this.customers.set(getCustomerPostion, newCus);
+            existCus.addTransaction(amount);
             return true;
         }
         else
@@ -42,20 +64,20 @@ public class Branches
 
     public int findCustomer(Customers customer)
     {
-        return this.customers.indexOf(customer);
+        return this.cusArray.indexOf(customer);
     }
 
-    public int findCustomer(String nameofCustomer)
+    public Customers findCustomer(String nameofCustomer)
     {
 
-        for (int i = 0; i < this.customers.size(); i++)
+        for (int i = 0; i < this.cusArray.size(); i++)
         {
-            Customers customers = this.customers.get(i);
+            Customers customers = this.cusArray.get(i);
             if (customers.getName().equals(nameofCustomer))
             {
-                return i;
+                return customers;
             }
         }
-        return -1;
+        return null;
     }
 }
